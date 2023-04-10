@@ -10,12 +10,20 @@ public class RestController {
 
     private final SimpleGrpcClient grpcClient;
 
-    public RestController(SimpleGrpcClient grpcClient) {
+    private final SimpleVertxGrpcClient vertxGrpcClient;
+
+    public RestController(SimpleGrpcClient grpcClient, SimpleVertxGrpcClient vertxGrpcClient) {
         this.grpcClient = grpcClient;
+        this.vertxGrpcClient = vertxGrpcClient;
     }
 
     @Get("/{name}")
     public Mono<String> findByName(final String name) {
         return grpcClient.getMessage(name);
+    }
+
+    @Get("/vertx/{name}")
+    public Mono<String> findByNameVertx(final String name) {
+        return vertxGrpcClient.getMessage(name);
     }
 }

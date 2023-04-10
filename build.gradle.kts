@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
+    implementation("io.vertx:vertx-grpc-client:4.4.1")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.grpc:micronaut-grpc-runtime")
     implementation("io.micronaut:micronaut-jackson-databind")
