@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.gutmox";
+option java_outer_classname = "Rest2grpc";
+option objc_class_prefix = "HLW";
+
+package com.gutmox;
+
+service Rest2grpcService {
+  rpc send (Rest2grpcRequest) returns (Rest2grpcReply) {}
+}
+
+message Rest2grpcRequest {
+  string name = 1;
+}
+
+message Rest2grpcReply {
+  string message = 1;
+}
